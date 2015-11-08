@@ -14,6 +14,8 @@ use AoHtml\Traits\AttrRequiredTrait;
 use AoHtml\Traits\AttrTitleTrait;
 use AoHtml\Traits\AttrTrait;
 use AoHtml\Traits\AttrValueOldTrait;
+use AoHtml\Traits\AttrValueTrait;
+use AoHtml\Traits\TagDisabledTrait;
 use AoHtml\Traits\TagOpenTrait;
 
 class Select
@@ -32,7 +34,9 @@ class Select
         AttrPlaceholderTrait,
         AttrHelpTrait,
         AttrOptionsTrait,
+        AttrValueTrait,
         AttrValueOldTrait,
+        TagDisabledTrait,
         TagOpenTrait;
 
     //------------------------------------------------------------------------------------------------------------------

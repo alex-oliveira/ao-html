@@ -11,21 +11,32 @@
         @endif
     </label>
     {!! '<textarea class="form-control" ' !!}
+
+    @if($tag->disabled)
+        {!! 'disabled="disabled"' !!}
+    @endif
+
     {!! strlen($tag->name) > 0 ? 'name="' . $tag->name . '"' : '' !!}
     {!! $tag->required ? 'required="required"' : '' !!}
     {!! strlen($tag->maxlength) > 0 ? 'maxlength="' . $tag->maxlength . '"' : '' !!}
     {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
     {!! strlen($tag->placeholder) > 0 ? 'placeholder="' . $tag->placeholder . '"' : '' !!}
+    {!! strlen($tag->disabled) > 0 ? 'disabled="disabled"' : '' !!}
+
     <?php
     echo '>';
-    if($tag->old){
-        if($tag->pattern){
-            echo old($tag->oldName(), $tag->pattern);
-        }else{
-            echo old($tag->oldName());
+    if(strlen($tag->value) > 0){
+        echo $tag->value;
+    }else{
+        if($tag->old){
+            if($tag->pattern){
+                echo old($tag->oldName(), $tag->pattern);
+            }else{
+                echo old($tag->oldName());
+            }
+        }elseif($tag->pattern){
+            echo $tag->pattern;
         }
-    }elseif($tag->pattern){
-        echo $tag->pattern;
     }
     echo '</textarea>';
     ?>

@@ -15,6 +15,7 @@ use AoHtml\Traits\AttrTitleTrait;
 use AoHtml\Traits\AttrTrait;
 use AoHtml\Traits\AttrValueOldTrait;
 use AoHtml\Traits\AttrValueTrait;
+use AoHtml\Traits\TagDisabledTrait;
 use AoHtml\Traits\TagOpenTrait;
 
 class Input
@@ -33,8 +34,9 @@ class Input
         AttrPlaceholderTrait,
         AttrHelpTrait,
         AttrMaxlengthTrait,
-        AttrValueOldTrait,
         AttrValueTrait,
+        AttrValueOldTrait,
+        TagDisabledTrait,
         TagOpenTrait;
 
     //------------------------------------------------------------------------------------------------------------------

@@ -11,31 +11,44 @@
         @endif
     </label>
     {!! '<select class="form-control" ' !!}
+
+    @if($tag->disabled)
+        {!! 'disabled="disabled"' !!}
+    @endif
+
     {!! strlen($tag->name) > 0 ? 'name="' . $tag->name . '"' : '' !!}
     {!! $tag->required ? 'required="required"' : '' !!}
     {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
     {!! strlen($tag->placeholder) > 0 ? 'placeholder="' . $tag->placeholder . '"' : '' !!}
     {!! '>' !!}
-    @if($tag->old)
-        @if($tag->pattern)
-            @foreach($tag->options as $key => $value)
-                <option value="{!! $key !!}" {!! $value == old($tag->oldName(), $tag->pattern) ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
-            @endforeach
-        @else
-            @foreach($tag->options as $key => $value)
-                <option value="{!! $key !!}" {!! $value == old($tag->oldName()) ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
-            @endforeach
-        @endif
+
+    @if(strlen($tag->value) > 0)
+        @foreach($tag->options as $key => $value)
+            <option value="{!! $key !!}" {!! $value == $tag->value ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
+        @endforeach
     @else
-        @if($tag->pattern)
-            @foreach($tag->options as $key => $value)
-                <option value="{!! $key !!}" {!! $value == $tag->pattern ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
-            @endforeach
+        @if($tag->old)
+            @if($tag->pattern)
+                @foreach($tag->options as $key => $value)
+                    <option value="{!! $key !!}" {!! $value == old($tag->oldName(), $tag->pattern) ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
+                @endforeach
+            @else
+                @foreach($tag->options as $key => $value)
+                    <option value="{!! $key !!}" {!! $value == old($tag->oldName()) ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
+                @endforeach
+            @endif
         @else
-            @foreach($tag->options as $key => $value)
-                <option value="{!! $key !!}">{!! $value !!}</option>
-            @endforeach
+            @if($tag->pattern)
+                @foreach($tag->options as $key => $value)
+                    <option value="{!! $key !!}" {!! $value == $tag->pattern ? 'selected="selected"' : '' !!}>{!! $value !!}</option>
+                @endforeach
+            @else
+                @foreach($tag->options as $key => $value)
+                    <option value="{!! $key !!}">{!! $value !!}</option>
+                @endforeach
+            @endif
         @endif
     @endif
+
     {!! '</select>' !!}
 </div>
