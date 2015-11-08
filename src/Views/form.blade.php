@@ -1,4 +1,4 @@
-<form {{ 0 }}>
+<form class="{!! $tag->classes !!}" id="{!! $tag->id !!}" name="{!! $tag->name !!}" action="{!! $tag->action !!}" method="{!! $tag->method !!}" >
     @if($tag->method != 'get')
         {!! csrf_field() !!}
         @if($tag->method != 'post')

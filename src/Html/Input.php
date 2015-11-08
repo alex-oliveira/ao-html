@@ -3,10 +3,12 @@
 namespace AoHtml\Html;
 
 use AoHtml\Traits\AttrClassTrait;
+use AoHtml\Traits\AttrHelpTrait;
 use AoHtml\Traits\AttrIdTrait;
 use AoHtml\Traits\AttrLabelTrait;
 use AoHtml\Traits\AttrMaxlengthTrait;
 use AoHtml\Traits\AttrNameTrait;
+use AoHtml\Traits\AttrPatternTrait;
 use AoHtml\Traits\AttrPlaceholderTrait;
 use AoHtml\Traits\AttrRequiredTrait;
 use AoHtml\Traits\AttrTitleTrait;
@@ -27,21 +29,24 @@ class Input
         AttrNameTrait,
         AttrTitleTrait,
         AttrRequiredTrait,
-        AttrMaxlengthTrait,
+        AttrPatternTrait,
         AttrPlaceholderTrait,
-        AttrValueTrait,
+        AttrHelpTrait,
+        AttrMaxlengthTrait,
         AttrValueOldTrait,
+        AttrValueTrait,
         TagOpenTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT
     //------------------------------------------------------------------------------------------------------------------
 
-    public function __construct($label = null, $name = null, $type = 'text')
+    public function __construct($label = null, $name = null, $type = 'text', $pattern = null)
     {
         $this->type($type);
         $this->label($label);
         $this->name($name);
+        $this->pattern($pattern);
     }
 
     //------------------------------------------------------------------------------------------------------------------
