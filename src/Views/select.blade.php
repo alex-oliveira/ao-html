@@ -24,8 +24,9 @@
     {!! $tag->required ? 'required="required"' : '' !!}
     {!! $tag->readonly ? 'readonly="readonly"' : '' !!}
     {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
-    {!! strlen($tag->placeholder) > 0 ? 'placeholder="' . $tag->placeholder . '"' : '' !!}
     {!! '>' !!}
+
+    <option value="">{!! strlen($tag->placeholder) > 0 ? '&gg; ' . $tag->placeholder : '' !!}</option>
 
     <?php $v = $tag->options_value ?>
     <?php $l = $tag->options_label ?>

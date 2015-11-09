@@ -5,6 +5,7 @@ namespace AoHtml\Html;
 use AoHtml\Traits\HelpTrait;
 use AoHtml\Traits\LabelTrait;
 use AoHtml\Traits\MaxlengthTrait;
+use AoHtml\Traits\MinlengthTrait;
 use AoHtml\Traits\NameTrait;
 use AoHtml\Traits\PatternTrait;
 use AoHtml\Traits\PlaceholderTrait;
@@ -25,6 +26,7 @@ class Textarea
         NameTrait,
         LabelTrait,
         RequiredTrait,
+        MinlengthTrait,
         MaxlengthTrait,
         TitleTrait,
         PlaceholderTrait,

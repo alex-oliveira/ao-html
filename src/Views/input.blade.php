@@ -30,7 +30,7 @@
     {!! strlen($tag->max) > 0 ? 'max="' . $tag->max . '"' : '' !!}
     {!! strlen($tag->maxlength) > 0 ? 'maxlength="' . $tag->maxlength . '"' : '' !!}
     {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
-    {!! strlen($tag->placeholder) > 0 ? 'placeholder="' . $tag->placeholder . '"' : '' !!}
+    {!! strlen($tag->placeholder) > 0 ? 'placeholder="&gg; ' . $tag->placeholder . '"' : '' !!}
 
     @if(strlen($tag->value) > 0)
         {!! 'value="' . $tag->value . '"' !!}

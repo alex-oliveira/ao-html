@@ -25,7 +25,7 @@
     {!! $tag->readonly ? 'readonly="readonly"' : '' !!}
     {!! strlen($tag->maxlength) > 0 ? 'maxlength="' . $tag->maxlength . '"' : '' !!}
     {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
-    {!! strlen($tag->placeholder) > 0 ? 'placeholder="' . $tag->placeholder . '"' : '' !!}
+    {!! strlen($tag->placeholder) > 0 ? 'placeholder="&gg; ' . $tag->placeholder . '"' : '' !!}
     {!! strlen($tag->disabled) > 0 ? 'disabled="disabled"' : '' !!}
 
     <?php

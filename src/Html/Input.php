@@ -2,10 +2,12 @@
 
 namespace AoHtml\Html;
 
+use AoHtml\Traits\AutocompleteTrait;
 use AoHtml\Traits\HelpTrait;
 use AoHtml\Traits\LabelTrait;
 use AoHtml\Traits\MaxlengthTrait;
 use AoHtml\Traits\MaxTrait;
+use AoHtml\Traits\MinlengthTrait;
 use AoHtml\Traits\MinTrait;
 use AoHtml\Traits\NameTrait;
 use AoHtml\Traits\PatternTrait;
@@ -31,6 +33,7 @@ class Input
         RequiredTrait,
         MinTrait,
         MaxTrait,
+        MinlengthTrait,
         MaxlengthTrait,
         TitleTrait,
         PlaceholderTrait,
@@ -39,7 +42,8 @@ class Input
         ValueTrait,
         PatternTrait,
         ReadonlyTrait,
-        DisabledTrait;
+        DisabledTrait,
+        AutocompleteTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT
