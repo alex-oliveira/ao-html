@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrIconTrait
+trait NameTrait
 {
 
     /**
      * @var string
      */
-    protected $icon;
+    protected $name;
 
     /**
-     * @param string $icon
+     * @param string $name
      * @return $this
      */
-    public function icon($icon)
+    public function name($name)
     {
-        $this->icon = $icon;
+        $this->name = $name;
         return $this;
     }
 

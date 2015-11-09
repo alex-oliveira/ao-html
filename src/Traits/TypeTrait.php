@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrValueTrait
+trait TypeTrait
 {
 
     /**
      * @var string
      */
-    protected $value;
+    protected $type;
 
     /**
-     * @param string $value
+     * @param string $type
      * @return $this
      */
-    public function value($value)
+    public function type($type)
     {
-        $this->value = $value;
+        $this->type = $type;
         return $this;
     }
 

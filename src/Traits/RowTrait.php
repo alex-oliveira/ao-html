@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait TagExpandTrait
+trait RowTrait
 {
 
     /**
      * @var bool
      */
-    protected $closed = false;
+    protected $row = false;
 
     /**
      * @param bool|true $status
      * @return $this
      */
-    public function closed($status = true)
+    public function row($status = true)
     {
-        $this->closed = $status;
+        $this->row = $status;
         return $this;
     }
 

@@ -2,8 +2,9 @@
 
 namespace AoHtml\Traits;
 
-trait AttrTrait
+trait TagTrait
 {
+    use IdTrait, ClassTrait, ColsTrait, OffsetTrait;
 
     public function __get($name)
     {
@@ -15,7 +16,12 @@ trait AttrTrait
 
     public function __toString()
     {
-        return (string)$this->open();
+        return (string)$this->begin();
+    }
+
+    public function begin()
+    {
+        return view('ao-html::' . $this->tag, ['tag' => $this]);
     }
 
 }

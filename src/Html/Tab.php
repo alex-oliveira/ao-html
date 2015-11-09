@@ -2,30 +2,24 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrHrefTrait;
-use AoHtml\Traits\AttrIconTrait;
-use AoHtml\Traits\AttrIdTrait;
-use AoHtml\Traits\AttrClassTrait;
-use AoHtml\Traits\AttrLabelTrait;
-use AoHtml\Traits\AttrTitleTrait;
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\TagActiveTrait;
-use AoHtml\Traits\TagOpenTrait;
+use AoHtml\Traits\HrefTrait;
+use AoHtml\Traits\IconTrait;
+use AoHtml\Traits\LabelTrait;
+use AoHtml\Traits\TitleTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\ActiveTrait;
 
 class Tab
 {
 
     protected $tag = 'tab';
 
-    use AttrTrait,
-        AttrIdTrait,
-        AttrClassTrait,
-        AttrLabelTrait,
-        AttrHrefTrait,
-        AttrIconTrait,
-        AttrTitleTrait,
-        TagActiveTrait,
-        TagOpenTrait;
+    use TagTrait,
+        HrefTrait,
+        LabelTrait,
+        IconTrait,
+        TitleTrait,
+        ActiveTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT

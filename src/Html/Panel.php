@@ -2,32 +2,32 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrIdTrait;
-use AoHtml\Traits\AttrClassTrait;
-use AoHtml\Traits\AttrLabelTrait;
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\TagExpandTrait;
-use AoHtml\Traits\TagOpenEndTrait;
+use AoHtml\Traits\LabelTrait;
+use AoHtml\Traits\ParentTrait;
+use AoHtml\Traits\RowTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\ClosedTrait;
+use AoHtml\Traits\EndTrait;
 
 class Panel
 {
 
     protected $tag = 'panel';
 
-    use AttrTrait,
-        AttrIdTrait,
-        AttrClassTrait,
-        AttrLabelTrait,
-        TagExpandTrait,
-        TagOpenEndTrait;
+    use TagTrait,
+        LabelTrait,
+        ParentTrait,
+        ClosedTrait,
+        RowTrait,
+        EndTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT
     //------------------------------------------------------------------------------------------------------------------
 
-    public function __construct($label = null)
+    public function __construct($label = null, $parent = null)
     {
-        $this->label($label);
+        $this->label($label)->parent($parent);
     }
 
 }

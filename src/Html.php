@@ -2,6 +2,7 @@
 
 namespace AoHtml;
 
+use AoHtml\Html\Button;
 use AoHtml\Html\Form;
 use AoHtml\Html\Input;
 use AoHtml\Html\Panel;
@@ -42,20 +43,22 @@ class Html
     }
 
     /**
+     * @param string $id
      * @return Panels
      */
-    public function panels()
+    public function panels($id = null)
     {
-        return new Panels();
+        return new Panels($id);
     }
 
     /**
      * @param string $label
+     * @param string $parent
      * @return Panel
      */
-    public function panel($label = null)
+    public function panel($label = null, $parent = null)
     {
-        return new Panel($label);
+        return new Panel($label, $parent);
     }
 
     /**
@@ -63,7 +66,7 @@ class Html
      * @param string $method
      * @return Form
      */
-    public function form($action = null, $method = null)
+    public function form($action = null, $method = 'get')
     {
         return new Form($action, $method);
     }
@@ -101,6 +104,15 @@ class Html
     public function select($label = null, $name = null, $pattern = null, array $options = [])
     {
         return new Select($label, $name, $pattern, $options);
+    }
+
+    /**
+     * @param string $label
+     * @param string $type
+     * @return Button
+     */
+    public function button($label = null, $type = 'button'){
+        return new Button($label, $type);
     }
 
 }

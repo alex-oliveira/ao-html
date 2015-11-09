@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrIdTrait
+trait TitleTrait
 {
 
     /**
      * @var string
      */
-    protected $id;
+    protected $title;
 
     /**
-     * @param string $id
+     * @param string $title
      * @return $this
      */
-    public function id($id)
+    public function title($title)
     {
-        $this->id = $id;
+        $this->title = $title;
         return $this;
     }
 

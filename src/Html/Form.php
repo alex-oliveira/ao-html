@@ -2,53 +2,37 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrActionTrait;
-use AoHtml\Traits\AttrIdTrait;
-use AoHtml\Traits\AttrNameTrait;
-use AoHtml\Traits\AttrClassTrait;
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\TagOpenEndTrait;
+use AoHtml\Traits\ActionTrait;
+use AoHtml\Traits\MethodTrait;
+use AoHtml\Traits\NameTrait;
+use AoHtml\Traits\RowTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\EndTrait;
 
 class Form
 {
 
     protected $tag = 'form';
 
-    use AttrTrait,
-        AttrIdTrait,
-        AttrClassTrait,
-        AttrNameTrait,
-        AttrActionTrait,
-        TagOpenEndTrait;
+    use TagTrait,
+        NameTrait,
+        ActionTrait,
+        MethodTrait,
+        RowTrait,
+        EndTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT
     //------------------------------------------------------------------------------------------------------------------
 
-    public function __construct($action = null, $method = null)
+    public function __construct($action = null, $method = 'get')
     {
-        $this->action($action);
-        $this->method($method);
+        $this->action($action)->method($method);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // METHOD
     //------------------------------------------------------------------------------------------------------------------
-
-    /**
-     * @var string
-     */
-    protected $method = 'get';
-
-    /**
-     * @param $method
-     * @return $this
-     */
-    public function method($method)
-    {
-        $this->method = $method;
-        return $this;
-    }
 
     /**
      * @return Form

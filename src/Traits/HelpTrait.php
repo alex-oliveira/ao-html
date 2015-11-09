@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrLabelTrait
+trait HelpTrait
 {
 
     /**
      * @var string
      */
-    protected $label;
+    protected $help;
 
     /**
-     * @param string $label
+     * @param string $help
      * @return $this
      */
-    public function label($label)
+    public function help($help)
     {
-        $this->label = $label;
+        $this->help = $help;
         return $this;
     }
 

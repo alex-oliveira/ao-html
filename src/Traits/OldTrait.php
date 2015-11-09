@@ -2,7 +2,7 @@
 
 namespace AoHtml\Traits;
 
-trait AttrValueOldTrait
+trait OldTrait
 {
 
     /**

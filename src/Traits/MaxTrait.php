@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrNameTrait
+trait MaxTrait
 {
 
     /**
      * @var string
      */
-    protected $name;
+    protected $max;
 
     /**
-     * @param string $name
+     * @param string $max
      * @return $this
      */
-    public function name($name)
+    public function max($max)
     {
-        $this->name = $name;
+        $this->max = $max;
         return $this;
     }
 

@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrHelpTrait
+trait MinTrait
 {
 
     /**
      * @var string
      */
-    protected $help;
+    protected $min;
 
     /**
-     * @param string $help
+     * @param string $min
      * @return $this
      */
-    public function help($help)
+    public function min($min)
     {
-        $this->help = $help;
+        $this->min = $min;
         return $this;
     }
 

@@ -2,15 +2,15 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\TagOpenEndTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\EndTrait;
 
 class Tabs
 {
 
     protected $tag = 'tabs';
 
-    use AttrTrait,
-        TagOpenEndTrait;
+    use TagTrait,
+        EndTrait;
 
 }

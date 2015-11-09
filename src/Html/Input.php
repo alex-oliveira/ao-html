@@ -2,42 +2,44 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrClassTrait;
-use AoHtml\Traits\AttrHelpTrait;
-use AoHtml\Traits\AttrIdTrait;
-use AoHtml\Traits\AttrLabelTrait;
-use AoHtml\Traits\AttrMaxlengthTrait;
-use AoHtml\Traits\AttrNameTrait;
-use AoHtml\Traits\AttrPatternTrait;
-use AoHtml\Traits\AttrPlaceholderTrait;
-use AoHtml\Traits\AttrRequiredTrait;
-use AoHtml\Traits\AttrTitleTrait;
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\AttrValueOldTrait;
-use AoHtml\Traits\AttrValueTrait;
-use AoHtml\Traits\TagDisabledTrait;
-use AoHtml\Traits\TagOpenTrait;
+use AoHtml\Traits\HelpTrait;
+use AoHtml\Traits\LabelTrait;
+use AoHtml\Traits\MaxlengthTrait;
+use AoHtml\Traits\MaxTrait;
+use AoHtml\Traits\MinTrait;
+use AoHtml\Traits\NameTrait;
+use AoHtml\Traits\PatternTrait;
+use AoHtml\Traits\PlaceholderTrait;
+use AoHtml\Traits\ReadonlyTrait;
+use AoHtml\Traits\RequiredTrait;
+use AoHtml\Traits\TitleTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\TypeTrait;
+use AoHtml\Traits\OldTrait;
+use AoHtml\Traits\ValueTrait;
+use AoHtml\Traits\DisabledTrait;
 
 class Input
 {
 
     protected $tag = 'input';
 
-    use AttrTrait,
-        AttrIdTrait,
-        AttrClassTrait,
-        AttrLabelTrait,
-        AttrNameTrait,
-        AttrTitleTrait,
-        AttrRequiredTrait,
-        AttrPatternTrait,
-        AttrPlaceholderTrait,
-        AttrHelpTrait,
-        AttrMaxlengthTrait,
-        AttrValueTrait,
-        AttrValueOldTrait,
-        TagDisabledTrait,
-        TagOpenTrait;
+    use TagTrait,
+        TypeTrait,
+        NameTrait,
+        LabelTrait,
+        RequiredTrait,
+        MinTrait,
+        MaxTrait,
+        MaxlengthTrait,
+        TitleTrait,
+        PlaceholderTrait,
+        HelpTrait,
+        OldTrait,
+        ValueTrait,
+        PatternTrait,
+        ReadonlyTrait,
+        DisabledTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT
@@ -45,29 +47,12 @@ class Input
 
     public function __construct($label = null, $name = null, $type = 'text', $pattern = null)
     {
-        $this->type($type);
-        $this->label($label);
-        $this->name($name);
-        $this->pattern($pattern);
+        $this->label($label)->name($name)->type($type)->pattern($pattern);
     }
 
     //------------------------------------------------------------------------------------------------------------------
     // TYPE
     //------------------------------------------------------------------------------------------------------------------
-
-    /**
-     * @var string
-     */
-    protected $type;
-
-    /**
-     * @return $this
-     */
-    public function type($type)
-    {
-        $this->type = $type;
-        return $this;
-    }
 
     /**
      * @return $this

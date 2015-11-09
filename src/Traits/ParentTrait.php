@@ -2,21 +2,21 @@
 
 namespace AoHtml\Traits;
 
-trait AttrHrefTrait
+trait ParentTrait
 {
 
     /**
      * @var string
      */
-    protected $href;
+    protected $parent;
 
     /**
-     * @param string $href
+     * @param string $parent
      * @return $this
      */
-    public function href($href)
+    public function parent($parent)
     {
-        $this->href = $href;
+        $this->parent = $parent;
         return $this;
     }
 

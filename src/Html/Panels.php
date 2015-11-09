@@ -2,15 +2,24 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\TagOpenEndTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\EndTrait;
 
 class Panels
 {
 
     protected $tag = 'panels';
 
-    use AttrTrait,
-        TagOpenEndTrait;
+    use TagTrait,
+        EndTrait;
+
+    //------------------------------------------------------------------------------------------------------------------
+    // CONSTRUCT
+    //------------------------------------------------------------------------------------------------------------------
+
+    public function __construct($id = null)
+    {
+        $this->id($id);
+    }
 
 }

@@ -2,42 +2,38 @@
 
 namespace AoHtml\Html;
 
-use AoHtml\Traits\AttrClassTrait;
-use AoHtml\Traits\AttrHelpTrait;
-use AoHtml\Traits\AttrIdTrait;
-use AoHtml\Traits\AttrLabelTrait;
-use AoHtml\Traits\AttrMaxlengthTrait;
-use AoHtml\Traits\AttrNameTrait;
-use AoHtml\Traits\AttrPatternTrait;
-use AoHtml\Traits\AttrPlaceholderTrait;
-use AoHtml\Traits\AttrRequiredTrait;
-use AoHtml\Traits\AttrTitleTrait;
-use AoHtml\Traits\AttrTrait;
-use AoHtml\Traits\AttrValueOldTrait;
-use AoHtml\Traits\AttrValueTrait;
-use AoHtml\Traits\TagDisabledTrait;
-use AoHtml\Traits\TagOpenTrait;
+use AoHtml\Traits\HelpTrait;
+use AoHtml\Traits\LabelTrait;
+use AoHtml\Traits\MaxlengthTrait;
+use AoHtml\Traits\NameTrait;
+use AoHtml\Traits\PatternTrait;
+use AoHtml\Traits\PlaceholderTrait;
+use AoHtml\Traits\ReadonlyTrait;
+use AoHtml\Traits\RequiredTrait;
+use AoHtml\Traits\TitleTrait;
+use AoHtml\Traits\TagTrait;
+use AoHtml\Traits\OldTrait;
+use AoHtml\Traits\ValueTrait;
+use AoHtml\Traits\DisabledTrait;
 
 class Textarea
 {
 
     protected $tag = 'textarea';
 
-    use AttrTrait,
-        AttrIdTrait,
-        AttrClassTrait,
-        AttrLabelTrait,
-        AttrNameTrait,
-        AttrTitleTrait,
-        AttrRequiredTrait,
-        AttrPatternTrait,
-        AttrPlaceholderTrait,
-        AttrHelpTrait,
-        AttrMaxlengthTrait,
-        AttrValueTrait,
-        AttrValueOldTrait,
-        TagDisabledTrait,
-        TagOpenTrait;
+    use TagTrait,
+        NameTrait,
+        LabelTrait,
+        RequiredTrait,
+        MaxlengthTrait,
+        TitleTrait,
+        PlaceholderTrait,
+        HelpTrait,
+        OldTrait,
+        ValueTrait,
+        PatternTrait,
+        ReadonlyTrait,
+        DisabledTrait;
 
     //------------------------------------------------------------------------------------------------------------------
     // CONSTRUCT
@@ -45,9 +41,7 @@ class Textarea
 
     public function __construct($label = null, $name = null, $pattern = null)
     {
-        $this->label($label);
-        $this->name($name);
-        $this->pattern($pattern);
+        $this->label($label)->name($name)->pattern($pattern);
     }
 
 }

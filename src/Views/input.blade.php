@@ -1,3 +1,5 @@
+@include('ao-html::cols', ['tag', $tag])
+
 <div class="form-group">
     <label>
         {!! $tag->label !!}
@@ -7,19 +9,25 @@
             </sup>
         @endif
         @if($tag->help)
-            <i class="glyphicon glyphicon-question-sign pull-right text-info" ao-popover="top" title="Ajuda" data-content="{!! $tag->help !!}"></i>
+            <i class="glyphicon glyphicon-question-sign pull-right text-info" ao-popover="top" title="Ajuda"
+               data-content="{!! $tag->help !!}"></i>
         @endif
     </label>
 
-    {!! '<input class="form-control" ' !!}
-    {!! strlen($tag->type) > 0 ? 'type="' . $tag->type . '"' : '' !!}
+    {!! '<input ' !!}
 
     @if($tag->disabled)
         {!! 'disabled="disabled"' !!}
     @endif
 
+    {!! strlen($tag->classes) > 0 ? 'class="' . $tag->classes . '"' : 'class="form-control"' !!}
+    {!! strlen($tag->id) > 0 ? 'id="' . $tag->id . '"' : '' !!}
+    {!! strlen($tag->type) > 0 ? 'type="' . $tag->type . '"' : '' !!}
     {!! strlen($tag->name) > 0 ? 'name="' . $tag->name . '"' : '' !!}
     {!! $tag->required ? 'required="required"' : '' !!}
+    {!! $tag->readonly ? 'readonly="readonly"' : '' !!}
+    {!! strlen($tag->min) > 0 ? 'min="' . $tag->min . '"' : '' !!}
+    {!! strlen($tag->max) > 0 ? 'max="' . $tag->max . '"' : '' !!}
     {!! strlen($tag->maxlength) > 0 ? 'maxlength="' . $tag->maxlength . '"' : '' !!}
     {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
     {!! strlen($tag->placeholder) > 0 ? 'placeholder="' . $tag->placeholder . '"' : '' !!}
@@ -44,3 +52,5 @@
 
     {!! ' />' !!}
 </div>
+
+@include('ao-html::cols-end', ['tag', $tag])
