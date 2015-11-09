@@ -21,7 +21,17 @@
         //--------------------------------------------------------------------------------------------------------------
         // COLLAPSE
         //--------------------------------------------------------------------------------------------------------------
-        $(document).on('click', '.btn-collapse-expand', function () {
+        var statusCollapseDblclick = false;
+        $(document).on('dblclick', '[data-parent=panel-group-collapse] [data-toggle=collapse]', function () {
+            statusCollapseDblclick = true;
+
+        }).on('hidden.bs.collapse shown.bs.collapse', '.panel', function () {
+            if (statusCollapseDblclick) {
+                statusCollapseDblclick = false;
+                $('.collapse', $(this).closest('.panel-group')).collapse(($('.panel-collapse', this).hasClass('in') ? 'show' : 'hide'));
+            }
+
+        }).on('click', '.btn-collapse-expand', function () {
             var group = $(this).closest('.panel-group');
             $('.collapse', group).collapse('show');
             $('.panel-title i', group).attr('class', 'glyphicon glyphicon-minus-sign');
