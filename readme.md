@@ -1,9 +1,9 @@
-# Ao-Alert
-Resources for Alerts with Laravel 5.1 + Bootstrap 3
+# Ao-Html
+Resources for HTML with Laravel 5.1 + Bootstrap 3
 
 ## 1) Installation
 ````
-$ composer require alex-oliveira/ao-alert
+$ composer require alex-oliveira/ao-html:dev-master
 ````
 
 ## 2) config/app.php
@@ -12,47 +12,35 @@ $ composer require alex-oliveira/ao-alert
     /*
      * Vendors Service Providers...
      */
-    AoAlert\AlertServiceProvider::class,
+    AoHtml\HtmlServiceProvider::class,
 ],
 'aliases' => [
     /*
      * Vendors Facades
      */
-    'Alert' => AoAlert\AlertFacade::class,
+    'Html' => AoHtml\HtmlFacade::class,
 ],
 ````
 
-## 3) Using
-Showing alerts in your template or view.
+## 3) Template
+Include package CSS in your template.
 ````
-{!! alert()->show() !!}
+{!! html()->css() !!}
 ````
-
-Add new messages in session.
+Include package JS in your template.
 ````
-alert()->info('message');
-alert()->success('message');
-alert()->warning('message');
-alert()->danger('message');
+{!! html()->js() !!}
 ````
 
-Add multiple messages.
+## 4) Elements
 ````
-alert()->info(['message a', 'message b', 'message c']);
-````
-
-Add message with multiple topics.
-````
-alert()->danger('message', ['topic a', 'topic b', 'topic c']);
-````
-
-Add new custom messages in session.
-````
-/* CSS */
-.alert-custom{
-    background: #ccc
-}
-
-/* PHP */
-alert()->add('alert-custom', 'message');
+html()->tabs();
+html()->tab();
+html()->panels();
+html()->panel();
+html()->form();
+html()->input();
+html()->select();
+html()->textarea();
+html()->button();
 ````
