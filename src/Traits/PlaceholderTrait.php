@@ -14,8 +14,11 @@ trait PlaceholderTrait
      * @param string $placeholder
      * @return $this
      */
-    public function placeholder($placeholder)
+    public function placeholder($placeholder = '')
     {
+        if ($placeholder == '')
+            $placeholder = $this->tag == 'select' ? 'Selecione...' : 'Preencha...';
+
         $this->placeholder = $placeholder;
         return $this;
     }
