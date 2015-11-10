@@ -35,11 +35,12 @@ class Html
     /**
      * @param string $label
      * @param string $href
+     * @param bool $active
      * @return Tab
      */
-    public function tab($label = null, $href = null)
+    public function tab($label = null, $href = null, $active = false)
     {
-        return new Tab($label, $href);
+        return new Tab($label, $href, $active);
     }
 
     /**

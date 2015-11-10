@@ -25,9 +25,9 @@ class Tab
     // CONSTRUCT
     //------------------------------------------------------------------------------------------------------------------
 
-    public function __construct($label = null, $href = null)
+    public function __construct($label = null, $href = null, $active = false)
     {
-        $this->label($label)->title($label)->href($href);
+        $this->label($label)->title($label)->href($href)->active($active);
     }
 
 }
