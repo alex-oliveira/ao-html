@@ -5,6 +5,7 @@ namespace AoHtml;
 use AoHtml\Html\Button;
 use AoHtml\Html\Form;
 use AoHtml\Html\Input;
+use AoHtml\Html\Link;
 use AoHtml\Html\Panel;
 use AoHtml\Html\Panels;
 use AoHtml\Html\Select;
@@ -112,8 +113,19 @@ class Html
      * @param string $type
      * @return Button
      */
-    public function button($label = null, $type = 'button'){
+    public function button($label = null, $type = 'button')
+    {
         return new Button($label, $type);
+    }
+
+    /**
+     * @param string $label
+     * @param string $href
+     * @return Link
+     */
+    public function link($label = null, $href = '#')
+    {
+        return new Link($label, $href);
     }
 
 }
