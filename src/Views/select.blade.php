@@ -12,6 +12,7 @@
             <i class="glyphicon glyphicon-question-sign pull-right text-info" ao-popover="top" title="Ajuda" data-content="{!! $tag->help !!}"></i>
         @endif
     </label>
+
     {!! '<select ' !!}
 
     @if($tag->disabled)
@@ -31,32 +32,36 @@
     <?php $v = $tag->options_value ?>
     <?php $l = $tag->options_label ?>
 
-    @if(strlen($tag->value) > 0)
-        @foreach($tag->options as $o)
-            <option value="{!! $o[$v] !!}" {!! $o[$v] == $tag->value ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
-        @endforeach
-    @else
-        @if($tag->old)
-            @if($tag->pattern)
+    <?php $old = $tag->old ?>
+    <?php $value = $tag->value ?>
+    <?php $pattern = $tag->pattern ?>
+
+    @if(empty($value))
+        @if(empty($old))
+            @if(empty($pattern))
                 @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" {!! $o[$v] == old($tag->oldName(), $tag->pattern) ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
+                    <option data-type="a" value="{!! $o[$v] !!}" {!! $o[$v] == old($tag->oldName()) ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
                 @endforeach
             @else
                 @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" {!! $o[$v] == old($tag->oldName()) ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
+                    <option data-type="b" value="{!! $o[$v] !!}" {!! $o[$v] == old($tag->oldName(), $pattern) ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
                 @endforeach
             @endif
         @else
-            @if($tag->pattern)
+            @if(empty($pattern))
                 @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" {!! $o[$v] == $tag->pattern ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
+                    <option data-type="c" value="{!! $o[$v] !!}" title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
                 @endforeach
             @else
                 @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
+                    <option data-type="d" value="{!! $o[$v] !!}" {!! $o[$v] == $pattern ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
                 @endforeach
             @endif
         @endif
+    @else
+        @foreach($tag->options as $o)
+            <option data-type="e" value="{!! $o[$v] !!}" {!! $o[$v] == $value ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
+        @endforeach
     @endif
 
     {!! '</select>' !!}
