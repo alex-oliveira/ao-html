@@ -4,10 +4,11 @@
         min-height: 200px;
     }
 
-    .lead-empty {
+    .result-empty {
         color: #888;
         text-align: center;
         padding: 20px 0;
+        margin-bottom: 0;
     }
 
     .form-group label {
