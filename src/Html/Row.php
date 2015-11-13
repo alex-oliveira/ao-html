@@ -17,14 +17,6 @@ class Row
     protected $xs = 0;
 
     /**
-     * @return Col
-     */
-    public function col()
-    {
-        return new Col($this);
-    }
-
-    /**
      * @param Col $col
      */
     public function clearfix(Col $col)

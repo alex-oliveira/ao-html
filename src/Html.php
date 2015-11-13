@@ -3,6 +3,7 @@
 namespace AoHtml;
 
 use AoHtml\Html\Button;
+use AoHtml\Html\Col;
 use AoHtml\Html\Form;
 use AoHtml\Html\Input;
 use AoHtml\Html\Link;
@@ -33,6 +34,14 @@ class Html
     public function row($id = null)
     {
         return new Row($id);
+    }
+
+    /**
+     * @return Col
+     */
+    public function col()
+    {
+        return new Col();
     }
 
     /**
