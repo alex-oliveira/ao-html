@@ -1,0 +1,1 @@
+<div class="{!! strlen($tag->lg) > 0 ? 'col-lg-' . $tag->lg : '' !!} {!! strlen($tag->md) > 0 ? 'col-md-' . $tag->md : '' !!} {!! strlen($tag->sm) > 0 ? 'col-sm-' . $tag->sm : '' !!} {!! strlen($tag->xs) > 0 ? 'col-xs-' . $tag->xs : '' !!}">

@@ -8,6 +8,7 @@ use AoHtml\Html\Input;
 use AoHtml\Html\Link;
 use AoHtml\Html\Panel;
 use AoHtml\Html\Panels;
+use AoHtml\Html\Row;
 use AoHtml\Html\Select;
 use AoHtml\Html\Tab;
 use AoHtml\Html\Tabs;
@@ -23,6 +24,15 @@ class Html
     public function js()
     {
         return view('ao-html::assets.js');
+    }
+
+    /**
+     * @param string $id
+     * @return Row
+     */
+    public function row($id = null)
+    {
+        return new Row($id);
     }
 
     /**
