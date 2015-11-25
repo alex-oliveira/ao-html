@@ -12,6 +12,7 @@ use AoHtml\Html\Panels;
 use AoHtml\Html\Row;
 use AoHtml\Html\Select;
 use AoHtml\Html\Tab;
+use AoHtml\Html\Table;
 use AoHtml\Html\Tabs;
 use AoHtml\Html\Textarea;
 
@@ -135,6 +136,14 @@ class Html
     public function button($label = null, $type = 'button')
     {
         return new Button($label, $type);
+    }
+
+    /**
+     * @return Table
+     */
+    public function table()
+    {
+        return new Table();
     }
 
     /**

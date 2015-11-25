@@ -5,7 +5,7 @@ strlen($tag->id) > 0 ? $att[] = 'id="' . $tag->id . '"' : null;
 ?>
 
 <li {!! implode(' ', $att) !!} >
-    <a href="{{ $tag->href }}" title="{{ $tag->title }}" data-toggle="tab">
+    <a href="{{ $tag->href }}" title="{{ $tag->title }}" {!! substr($tag->href, 0, 1) == '#' ? 'data-toggle="tab"' : '' !!} >
         <i class="{{ $tag->icon }}"></i> <span class="hidden-xs">{{ $tag->label }}</span>
     </a>
 </li>
