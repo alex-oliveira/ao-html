@@ -20,4 +20,15 @@ trait HrefTrait
         return $this;
     }
 
+    /**
+     * @param string $name
+     * @param array $params
+     * @return $this
+     */
+    public function route($name, $params = [])
+    {
+        $this->href = route($name, $params);
+        return $this;
+    }
+
 }

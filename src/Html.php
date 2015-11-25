@@ -147,4 +147,32 @@ class Html
         return new Link($label, $href);
     }
 
+    /**
+     * @param string $label
+     * @param string $name
+     * @param string $route
+     * @param bool $button
+     * @param string $icon
+     * @return Link
+     */
+    public function linkOrder($label, $name, $route, $button = true, $icon = 'alphabet')
+    {
+        $l = new Link($label);
+
+        $params = collect(request()->except('sort'));
+        if ($name != $params->get('order')) {
+            $params->put('order', $name);
+            $button ? $l->classes('btn btn-xs btn-default') : null;
+        } else {
+            $sort = request()->get('sort', false);
+            $sort != 'desc' ? $params->put('sort', 'desc') : null ;
+
+            $l->label($label . ' <i class="glyphicon glyphicon-sort-by-' . $icon . ($params->get('sort') == 'desc' ? '' : '-alt') . '"></i>');
+            $button ? $l->classes('btn btn-xs btn-primary') : null;
+        }
+
+        $l->href(route($route, $params->all()));
+        return $l;
+    }
+
 }

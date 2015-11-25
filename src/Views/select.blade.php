@@ -13,58 +13,51 @@
         @endif
     </label>
 
-    {!! '<select ' !!}
-
-    @if($tag->disabled)
-        {!! 'disabled="disabled"' !!}
-    @endif
-
-    {!! strlen($tag->classes) > 0 ? 'class="' . $tag->classes . '"' : 'class="form-control"' !!}
-    {!! strlen($tag->id) > 0 ? 'id="' . $tag->id . '"' : '' !!}
-    {!! strlen($tag->name) > 0 ? 'name="' . $tag->name . '"' : '' !!}
-    {!! $tag->required ? 'required="required"' : '' !!}
-    {!! $tag->readonly ? 'readonly="readonly"' : '' !!}
-    {!! strlen($tag->title) > 0 ? 'title="' . $tag->title . '"' : '' !!}
-    {!! '>' !!}
-
     <?php
-    $v = $tag->options_value;
-    $l = $tag->options_label;
-    $old = $tag->old;
-    $value = $tag->value;
+    $att = [];
+    $att[] = 'class="' . ( strlen($tag->classes) > 0 ? $tag->classes : 'form-control' ) . '"';
+    strlen($tag->id) > 0 ? $att[] = 'id="' . $tag->id . '"' : null;
+    strlen($tag->name) > 0 ? $att[] = 'name="' . $tag->name . '"' : null;
+    $tag->required ? $att[] = 'required="required"' : null;
+    $tag->readonly ? $att[] = 'readonly="readonly"' : null;
+    strlen($tag->title) > 0 ? $att[] = 'title="' . $tag->title . '"' : null;
+    $tag->disabled ? $att[] = 'disabled="disabled"' : null;
+
     $pattern = $tag->pattern;
+    $value = $tag->value;
+    $old = $tag->old;
     ?>
 
-    <option value="">{!! strlen($tag->placeholder) > 0 ? '&gg; ' . $tag->placeholder : '' !!}</option>
-    @if(strlen($value) > 0)
-        @foreach($tag->options as $o)
-            <option value="{!! $o[$v] !!}" {!! $o[$v] == $value ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
-        @endforeach
-    @else
-        @if($old)
-            @if(strlen($pattern) > 0)
-                @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" {!! $o[$v] == old($tag->oldName(), $pattern) ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
-                @endforeach
-            @else
-                @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" {!! $o[$v] == old($tag->oldName()) ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
-                @endforeach
-            @endif
+    <select {!! implode(' ', $att) !!} >
+        <option value="">{!! strlen($tag->placeholder) > 0 ? '&gg; ' . $tag->placeholder : '' !!}</option>
+        @if(strlen($value) > 0)
+            @foreach($tag->options as $v => $l)
+                <option value="{!! $v !!}" {!! $v == $value ? 'selected="selected"' : '' !!} title="{!! $l !!}">{!! $l !!}</option>
+            @endforeach
         @else
-            @if(strlen($pattern) > 0)
-                @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" {!! $o[$v] == $pattern ? 'selected="selected"' : '' !!} title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
-                @endforeach
+            @if($old)
+                @if(strlen($pattern) > 0)
+                    @foreach($tag->options as $v => $l)
+                        <option value="{!! $v !!}" {!! $v == old($tag->oldName(), $pattern) ? 'selected="selected"' : '' !!} title="{!! $l !!}">{!! $l !!}</option>
+                    @endforeach
+                @else
+                    @foreach($tag->options as $v => $l)
+                        <option value="{!! $v !!}" {!! $v == old($tag->oldName()) ? 'selected="selected"' : '' !!} title="{!! $l !!}">{!! $l !!}</option>
+                    @endforeach
+                @endif
             @else
-                @foreach($tag->options as $o)
-                    <option value="{!! $o[$v] !!}" title="{!! $o[$l] !!}">{!! $o[$l] !!}</option>
-                @endforeach
+                @if(strlen($pattern) > 0)
+                    @foreach($tag->options as $v => $l)
+                        <option value="{!! $v !!}" {!! $v == $pattern ? 'selected="selected"' : '' !!} title="{!! $l !!}">{!! $l !!}</option>
+                    @endforeach
+                @else
+                    @foreach($tag->options as $v => $l)
+                        <option value="{!! $v !!}" title="{!! $l !!}">{!! $l !!}</option>
+                    @endforeach
+                @endif
             @endif
         @endif
-    @endif
-
-    {!! '</select>' !!}
+    </select>
 </div>
 
 @include('ao-html::cols-end', ['tag', $tag])
